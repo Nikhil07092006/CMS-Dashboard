@@ -4,7 +4,7 @@ A simple and modern **Content Management System (CMS) dashboard** built with **H
 This project provides a responsive, interactive dashboard for managing content, media, contact information, and live preview.
 
 ---
-🌐 **Live Demo**: [GitHub Pages Link]()
+🌐 **Live Demo**: [GitHub Pages Link](https://nikhil07092006.github.io/CMS-Dashboard/)
 ## 🚀 Features
 
 * **Dashboard Overview** – Quick stats for media, content, contacts, and performance.
@@ -39,7 +39,7 @@ This project provides a responsive, interactive dashboard for managing content, 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/cms-dashboard.git
+   git clone https://github.com/Nikhil07092006/CMS-Dashboard.git
    ```
 2. Navigate to the project folder:
 
@@ -47,18 +47,6 @@ This project provides a responsive, interactive dashboard for managing content, 
    cd cms-dashboard
    ```
 3. Open `index.html` in your browser.
-
----
-
-## 🌐 Live Demo
-
-Once hosted on **GitHub Pages**, access it here:
-
-```
-https://your-username.github.io/cms-dashboard/
-```
-
----
 
 ## 📜 License
 
