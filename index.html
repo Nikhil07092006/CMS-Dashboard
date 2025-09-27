@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern CMS Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">ModernCMS</div>
+                <div class="logo-subtitle">Content Management System</div>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="#" class="nav-item active" data-section="dashboard">
+                    <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                    </svg>
+                    Dashboard
+                </a>
+                
+                <a href="#" class="nav-item" data-section="content">
+                    <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 0h8v12H6V4z" clip-rule="evenodd"></path>
+                    </svg>
+                    Content Editor
+                </a>
+                
+                <a href="#" class="nav-item" data-section="media">
+                    <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                    </svg>
+                    Media Manager
+                </a>
+                
+                <a href="#" class="nav-item" data-section="contact">
+                    <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M14.243 5.757a6 6 0 10-.986 9.284 1 1 0 111.087 1.678A8 8 0 1118 10a3 3 0 01-4.8 2.401A4 4 0 1114 10a1 1 0 102 0c0-1.537-.586-3.07-1.757-4.243zM12 10a2 2 0 10-4 0 2 2 0 004 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    Contact Info
+                </a>
+                
+                <a href="#" class="nav-item" data-section="preview">
+                    <svg class="nav-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
+                        <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    Live Preview
+                </a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="alert alert-success" id="successAlert"></div>
+            <div class="alert alert-error" id="errorAlert"></div>
+
+            <!-- Dashboard Section -->
+            <section class="content-section active" id="dashboard">
+                <div class="header">
+                    <h1>Dashboard Overview</h1>
+                    <p>Welcome to your content management dashboard. Monitor your website's content and media.</p>
+                </div>
+
+                <!-- Enhanced Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-card-icon" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                            <svg width="24" height="24" fill="white" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Media Files</div>
+                            <div class="stat-value" id="imagesCount">24</div>
+                            <div class="stat-change positive">+3 this week</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-card-icon" style="background: linear-gradient(135deg, #48bb78, #38a169);">
+                            <svg width="24" height="24" fill="white" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 0h8v12H6V4z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Content Items</div>
+                            <div class="stat-value" id="articlesCount">12</div>
+                            <div class="stat-change positive">+2 published</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-card-icon" style="background: linear-gradient(135deg, #ed8936, #dd6b20);">
+                            <svg width="24" height="24" fill="white" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M14.243 5.757a6 6 0 10-.986 9.284 1 1 0 111.087 1.678A8 8 0 1118 10a3 3 0 01-4.8 2.401A4 4 0 1114 10a1 1 0 102 0c0-1.537-.586-3.07-1.757-4.243zM12 10a2 2 0 10-4 0 2 2 0 004 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Contact Updates</div>
+                            <div class="stat-value" id="contactCount">5</div>
+                            <div class="stat-change neutral">Last updated 2 days ago</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-card-icon" style="background: linear-gradient(135deg, #9f7aea, #805ad5);">
+                            <svg width="24" height="24" fill="white" viewBox="0 0 20 20">
+                                <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Site Performance</div>
+                            <div class="stat-value" id="performanceScore">98%</div>
+                            <div class="stat-change positive">+2% from last month</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions & Recent Activity Grid -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+                    <!-- Quick Actions -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <svg width="20" height="20" fill="var(--accent-blue)" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path>
+                                </svg>
+                                <h2 class="card-title">Quick Actions</h2>
+                            </div>
+                            <p style="color: var(--text-secondary); font-size: 0.875rem; margin: 0;">Common tasks to manage your website content</p>
+                        </div>
+                        
+                        <div class="quick-actions">
+                            <div class="quick-action-item" onclick="navigateToSection('media')">
+                                <div class="quick-action-icon" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                                    <svg width="20" height="20" fill="white" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div class="quick-action-content">
+                                    <div class="quick-action-title">Upload New Media</div>
+                                    <div class="quick-action-desc">Add images or files to your media library</div>
+                                </div>
+                            </div>
+                            
+                            <div class="quick-action-item" onclick="navigateToSection('content')">
+                                <div class="quick-action-icon" style="background: linear-gradient(135deg, #48bb78, #38a169);">
+                                    <svg width="20" height="20" fill="white" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 0h8v12H6V4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div class="quick-action-content">
+                                    <div class="quick-action-title">Create New Content</div>
+                                    <div class="quick-action-desc">Write articles, pages, or reports</div>
+                                </div>
+                            </div>
+                            
+                            <div class="quick-action-item" onclick="navigateToSection('contact')">
+                                <div class="quick-action-icon" style="background: linear-gradient(135deg, #ed8936, #dd6b20);">
+                                    <svg width="20" height="20" fill="white" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M14.243 5.757a6 6 0 10-.986 9.284 1 1 0 111.087 1.678A8 8 0 1118 10a3 3 0 01-4.8 2.401A4 4 0 1114 10a1 1 0 102 0c0-1.537-.586-3.07-1.757-4.243zM12 10a2 2 0 10-4 0 2 2 0 004 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div class="quick-action-content">
+                                    <div class="quick-action-title">Update Contact Info</div>
+                                    <div class="quick-action-desc">Modify business details and hours</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <svg width="20" height="20" fill="var(--accent-purple)" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                                </svg>
+                                <h2 class="card-title">Recent Activity</h2>
+                            </div>
+                            <p style="color: var(--text-secondary); font-size: 0.875rem; margin: 0;">Latest changes and updates to your content</p>
+                        </div>
+                        
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                                    <svg width="16" height="16" fill="white" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div class="activity-content">
+                                    <div class="activity-title">New image uploaded</div>
+                                    <div class="activity-desc">hero-banner.jpg</div>
+                                    <div class="activity-time">2 hours ago</div>
+                                </div>
+                            </div>
+                            
+                            <div class="activity-item">
+                                <div class="activity-icon" style="background: linear-gradient(135deg, #48bb78, #38a169);">
+                                    <svg width="16" height="16" fill="white" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div class="activity-content">
+                                    <div class="activity-title">Content published</div>
+                                    <div class="activity-desc">Product Launch Article</div>
+                                    <div class="activity-time">1 day ago</div>
+                                </div>
+                            </div>
+                            
+                            <div class="activity-item">
+                                <div class="activity-icon" style="background: linear-gradient(135deg, #ed8936, #dd6b20);">
+                                    <svg width="16" height="16" fill="white" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div class="activity-content">
+                                    <div class="activity-title">Contact info updated</div>
+                                    <div class="activity-desc">Business hours</div>
+                                    <div class="activity-time">2 days ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Welcome Banner -->
+                <div class="welcome-banner">
+                    <div class="welcome-content">
+                        <div class="welcome-icon">
+                            <svg width="32" height="32" fill="white" viewBox="0 0 20 20">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 style="color: white; margin-bottom: 0.5rem;">Welcome to Dynamic CMS</h3>
+                            <p style="color: rgba(255, 255, 255, 0.9); margin: 0; line-height: 1.5;">Manage your website content, media files, and contact information all in one place. Get started by exploring the different sections available in the sidebar.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Content Editor Section -->
+            <section class="content-section" id="content">
+                <div class="header">
+                    <h1>Content Editor</h1>
+                    <p>Create and edit articles, pages, and text content</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Article Editor</h2>
+                        <button class="btn btn-primary" onclick="saveContent()">
+                            <span id="saveContentText">Save Article</span>
+                            <div class="loading" id="saveContentLoading" style="display: none; margin-left: 0.5rem;"></div>
+                        </button>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Article Title</label>
+                        <input type="text" class="form-input" id="articleTitle" placeholder="Enter article title..." value="Getting Started with Modern Web Design">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Category</label>
+                        <select class="form-select" id="articleCategory">
+                            <option value="web-design">Web Design</option>
+                            <option value="development">Development</option>
+                            <option value="ui-ux">UI/UX</option>
+                            <option value="tutorials">Tutorials</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Content</label>
+                        <div class="editor-toolbar">
+                            <button class="editor-btn" onclick="formatText('bold')" title="Bold">
+                                <strong>B</strong>
+                            </button>
+                            <button class="editor-btn" onclick="formatText('italic')" title="Italic">
+                                <em>I</em>
+                            </button>
+                            <button class="editor-btn" onclick="formatText('underline')" title="Underline">
+                                <u>U</u>
+                            </button>
+                            <button class="editor-btn" onclick="insertHeading()" title="Heading">
+                                H1
+                            </button>
+                        </div>
+                        <textarea class="form-textarea" id="articleContent" placeholder="Write your content here..." style="min-height: 300px;">Modern web design has evolved dramatically over the past few years. With the rise of new technologies and design trends, creating beautiful and functional websites has become more accessible than ever.
+
+In this comprehensive guide, we'll explore the key principles of modern web design, including responsive layouts, typography choices, color schemes, and user experience considerations.
+
+Whether you're a beginner or an experienced designer, this article will provide valuable insights to enhance your web design skills.</textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Media Manager Section -->
+            <section class="content-section" id="media">
+                <div class="header">
+                    <h1>Media Manager</h1>
+                    <p>Upload, organize, and manage your images and files</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Upload Media</h2>
+                    </div>
+
+                    <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
+                        <svg style="width: 48px; height: 48px; margin-bottom: 1rem; color: var(--text-muted);" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                        </svg>
+                        <div style="font-size: 1.125rem; font-weight: 500; margin-bottom: 0.5rem;">Drop files here or click to upload</div>
+                        <div style="color: var(--text-muted); font-size: 0.875rem;">Supports JPG, PNG, GIF, and SVG files</div>
+                        <input type="file" id="fileInput" multiple accept="image/*" style="display: none;" onchange="handleFileUpload(event)">
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Media Library</h2>
+                    </div>
+                    
+                    <div class="media-grid" id="mediaGrid">
+                        <!-- Sample media items -->
+                        <div class="media-item">
+                            <div class="media-preview">
+                                <div style="color: var(--text-muted); text-align: center;">
+                                    <svg style="width: 32px; height: 32px; margin-bottom: 0.5rem;" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <div style="font-size: 0.75rem;">hero-banner.jpg</div>
+                                </div>
+                            </div>
+                            <div style="font-size: 0.875rem; color: var(--text-secondary);">1920x1080 • 234KB</div>
+                        </div>
+
+                        <div class="media-item">
+                            <div class="media-preview">
+                                <div style="color: var(--text-muted); text-align: center;">
+                                    <svg style="width: 32px; height: 32px; margin-bottom: 0.5rem;" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <div style="font-size: 0.75rem;">team-photo.png</div>
+                                </div>
+                            </div>
+                            <div style="font-size: 0.875rem; color: var(--text-secondary);">800x600 • 156KB</div>
+                        </div>
+
+                        <div class="media-item">
+                            <div class="media-preview">
+                                <div style="color: var(--text-muted); text-align: center;">
+                                    <svg style="width: 32px; height: 32px; margin-bottom: 0.5rem;" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <div style="font-size: 0.75rem;">logo.svg</div>
+                                </div>
+                            </div>
+                            <div style="font-size: 0.875rem; color: var(--text-secondary);">Vector • 12KB</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Info Section -->
+            <section class="content-section" id="contact">
+                <div class="header">
+                    <h1>Contact Information</h1>
+                    <p>Manage your business contact details and social media links</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Business Information</h2>
+                        <button class="btn btn-primary" onclick="saveContactInfo()">
+                            <span id="saveContactText">Save Changes</span>
+                            <div class="loading" id="saveContactLoading" style="display: none; margin-left: 0.5rem;"></div>
+                        </button>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                        <div>
+                            <div class="form-group">
+                                <label class="form-label">Company Name</label>
+                                <input type="text" class="form-input" id="companyName" value="Modern Design Studio" placeholder="Enter company name">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-input" id="email" value="hello@moderndesign.com" placeholder="Enter email address">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Phone Number</label>
+                                <input type="tel" class="form-input" id="phone" value="+1 (555) 123-4567" placeholder="Enter phone number">
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="form-group">
+                                <label class="form-label">Address</label>
+                                <textarea class="form-textarea" id="address" placeholder="Enter business address">123 Design Street
+Suite 456
+Creative City, CC 12345</textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Business Hours</label>
+                                <textarea class="form-textarea" id="hours" placeholder="Enter business hours">Monday - Friday: 9:00 AM - 6:00 PM
+Saturday: 10:00 AM - 4:00 PM
+Sunday: Closed</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Social Media Links</h2>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                        <div>
+                            <div class="form-group">
+                                <label class="form-label">Website URL</label>
+                                <input type="url" class="form-input" id="website" value="https://moderndesign.com" placeholder="https://yourwebsite.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Facebook</label>
+                                <input type="url" class="form-input" id="facebook" value="https://facebook.com/moderndesign" placeholder="https://facebook.com/yourpage">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Twitter</label>
+                                <input type="url" class="form-input" id="twitter" value="https://twitter.com/moderndesign" placeholder="https://twitter.com/youraccount">
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="form-group">
+                                <label class="form-label">Instagram</label>
+                                <input type="url" class="form-input" id="instagram" value="https://instagram.com/moderndesign" placeholder="https://instagram.com/youraccount">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">LinkedIn</label>
+                                <input type="url" class="form-input" id="linkedin" value="https://linkedin.com/company/moderndesign" placeholder="https://linkedin.com/company/yourcompany">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">YouTube</label>
+                                <input type="url" class="form-input" id="youtube" placeholder="https://youtube.com/yourchannel">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Live Preview Section -->
+            <section class="content-section" id="preview">
+                <div class="header">
+                    <h1>Live Preview</h1>
+                    <p>See how your content will look on your website</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Website Preview</h2>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="btn btn-secondary" onclick="updatePreview()">Refresh Preview</button>
+                            <button class="btn btn-primary" onclick="publishChanges()">Publish Changes</button>
+                        </div>
+                    </div>
+
+                    <div class="preview-area" id="previewArea">
+                        <div style="max-width: 800px; margin: 0 auto;">
+                            <header style="text-align: center; margin-bottom: 3rem; padding: 2rem 0; background: var(--primary-gradient); color: white; border-radius: 12px; margin-bottom: 2rem;">
+                                <h1 id="previewCompanyName" style="font-size: 2.5rem; margin-bottom: 1rem; color: white;">Modern Design Studio</h1>
+                                <p style="font-size: 1.125rem; opacity: 0.9;">Creating beautiful digital experiences</p>
+                            </header>
+
+                            <article style="margin-bottom: 3rem;">
+                                <h2 id="previewArticleTitle" style="font-size: 1.875rem; margin-bottom: 1rem; color: var(--text-primary);">Getting Started with Modern Web Design</h2>
+                                <div id="previewArticleContent" style="color: var(--text-secondary); line-height: 1.8;">
+                                    <p>Modern web design has evolved dramatically over the past few years. With the rise of new technologies and design trends, creating beautiful and functional websites has become more accessible than ever.</p>
+                                    <p>In this comprehensive guide, we'll explore the key principles of modern web design, including responsive layouts, typography choices, color schemes, and user experience considerations.</p>
+                                    <p>Whether you're a beginner or an experienced designer, this article will provide valuable insights to enhance your web design skills.</p>
+                                </div>
+                            </article>
+
+                            <footer style="text-align: center; padding: 2rem 0; border-top: 2px solid var(--border-light); color: var(--text-secondary);">
+                                <div style="margin-bottom: 1rem;">
+                                    <strong id="previewFooterName">Modern Design Studio</strong>
+                                </div>
+                                <div id="previewContactInfo" style="font-size: 0.875rem; line-height: 1.6;">
+                                    Email: hello@moderndesign.com<br>
+                                    Phone: +1 (555) 123-4567<br>
+                                    Address: 123 Design Street, Suite 456, Creative City, CC 12345
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
